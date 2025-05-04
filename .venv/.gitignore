@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Environments
+.env
+.venv/
+venv/
+poetry.lock
+
+# IDEs
+.vscode/
+.idea/
+
+# Byte-compiled
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Docker
+*.db
+*.pid
