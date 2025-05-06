@@ -16,6 +16,8 @@ python-dotenv = "^1.1.0"
 pydantic-settings = "^2.9.1"
 alembic = "^1.15.2"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-jose = "^3.4.0"
+python-multipart = "^0.0.20"
 
 
 [tool.poetry.group.dev.dependencies]
