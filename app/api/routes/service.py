@@ -4,6 +4,7 @@ from app.crud import service as crud_service
 from app.schemas.service import ServiceCreate, ServiceUpdate, ServiceOut
 from app.db.session import get_db
 from app.core.dependencies import get_current_user
+from app.models.user import User
 
 router = APIRouter()
 
