@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean
 from app.db.base_class import Base
+from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = "users"
@@ -10,4 +11,4 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     is_superuser = Column(Boolean, default=False)
 
-
+services = relationship("Service", back_populates="owner")
