@@ -7,10 +7,12 @@ class Service(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
-    description = Column(String, nullable=True)
+    description = Column(String)
     price = Column(Float, nullable=False)
+    duration_minutes = Column(Integer, nullable=True)
     is_active = Column(Boolean, default=True)
-    owner_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    owner_id = Column(Integer, ForeignKey("users.id"))
 
     owner = relationship("User", back_populates="services")
+
 

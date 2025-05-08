@@ -51,3 +51,16 @@ def delete_service(db: Session, service_id: int) -> bool:
         db.commit()
         return True
     return False
+
+
+def get_all_services(db: Session) -> list[Service]:
+    return db.query(Service).all()
+
+
+def get_service_by_id(db: Session, service_id: int) -> Service | None:
+    return db.query(Service).filter(Service.id == service_id).first()
+
+
+def get_user_services(db: Session, user_id: int) -> list[Service]:
+    return db.query(Service).filter(Service.owner_id == user_id).all()
+

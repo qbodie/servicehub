@@ -15,6 +15,15 @@ def create_service_route(
     service = crud_service.create_service(db, service_in, current_user.id)
     return service
 
+
+@router.get("/me", response_model=list[ServiceOut])
+def get_my_services(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    return crud_service.get_user_services(db, current_user.id)
+
+
 @router.get("/{service_id}", response_model=ServiceOut)
 def get_service_route(service_id: int, db: Session = Depends(get_db)):
     service = crud_service.get_service(db, service_id)
@@ -42,3 +51,5 @@ def delete_service_route(service_id: int, db: Session = Depends(get_db)):
     if not success:
         raise HTTPException(status_code=404, detail="Service not found")
     return {"detail": "Service deleted"}
+
+
